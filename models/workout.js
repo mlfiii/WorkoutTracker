@@ -11,6 +11,8 @@ const workoutSchema = new Schema(
         },
         exercises: [
             {
+
+                //Common fields between both cardio and resistance so they are required
                 type: {
                     type: String,
                     trim: true,
@@ -25,6 +27,7 @@ const workoutSchema = new Schema(
                     type: Number,
                     required: "Enter an exercise duration in minutes"
                 },
+                //Fields that are not required.
                 weight: {
                     type: Number
                 },
