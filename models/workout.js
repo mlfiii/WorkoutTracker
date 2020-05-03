@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Schema that governs the workouts collection
+
 const workoutSchema = new Schema(
     {
         day: {
@@ -40,13 +42,13 @@ const workoutSchema = new Schema(
     },
     {
         toJSON: {
-            // include any virtual properties when data is requested
+
             virtuals: true
         }
     }
 );
 
-
+//Rather than add in a field directly, it is created virtually by pulling the total from all exerceises
 workoutSchema.virtual("totalDuration").get(function () {
 
     return this.exercises.reduce((total, exercise) => {
